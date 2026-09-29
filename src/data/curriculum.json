@@ -1,0 +1,173 @@
+[
+  {
+    "id": 0,
+    "title": "Onboarding & Sobrevivência Inicial",
+    "weeks": "Semanas 1–3",
+    "missions": 32,
+    "description": "Dominar a movimentação e visão 3D, coletar recursos básicos, fabricar a bancada 3x3, evoluir picaretas, acender a fornalha e forjar o primeiro equipamento de ferro.",
+    "projects": "O Lenhador Sustentável, A Mina Segura com Iluminação, A Forja do Mestre Ferreiro.",
+    "stage": 0
+  },
+  {
+    "id": 1,
+    "title": "Programação Visual I: Circuitos & Ações no Mundo",
+    "weeks": "Semanas 4–6",
+    "missions": 33,
+    "description": "Construir um abrigo seguro, minerar minério de Codestone e montar circuitos de computação física no chão com gatilhos, fios, alertas sonoros e blocos de construção/destruição 3D.",
+    "projects": "A Campainha Musical de Entrada, O Sistema de Alarme Anti-Zumbi, O Bunker com Porta Retrátil Secreta.",
+    "stage": 1
+  },
+  {
+    "id": 2,
+    "title": "Programação Visual II: Automação, Tempo & Cálculos",
+    "weeks": "Semanas 6–7",
+    "missions": 21,
+    "description": "Dominar controle temporal com pausas programadas (Delays), mecanismos de teletransporte, manipulação automática de inventário e cálculos matemáticos no Bloco de Operação.",
+    "projects": "O Elevador Mágico com Delay, A Máquina de Caixa Eletrônico (ATM), O Desafio do Parkour Cronometrado.",
+    "stage": 1
+  },
+  {
+    "id": 3,
+    "title": "Programação Visual III: Condicionais & Lógica Booleana",
+    "weeks": "Semana 8",
+    "missions": 13,
+    "description": "Ensinar os circuitos a tomar decisões autônomas usando o Bloco IF, operadores relacionais, lógica combinada e bifurcação de energia com o caminho ELSE.",
+    "projects": "O Portão da Academia Secreta, O Detector de Invasores com Operador E, A Masmorra das Escolhas Mortais.",
+    "stage": 1
+  },
+  {
+    "id": 4,
+    "title": "Programação Visual IV: Loops, Estruturas & Código Real",
+    "weeks": "Semanas 9–10",
+    "missions": 30,
+    "description": "Automatizar tarefas repetitivas com o Bloco FOR, processar coleções de dados (Arrays e Objetos JSON) e fazer a primeira integração com código JavaScript real no Editor Monaco.",
+    "projects": "A Torre Rápida de 10 Andares, A Passarela Arco-Íris com Lista, O Grande Construtor de Pirâmides (Integrador).",
+    "stage": 1
+  },
+  {
+    "id": 5,
+    "title": "Central de Programação I: Fundamentos & Primeiro Bloco",
+    "weeks": "Semanas 11–13",
+    "missions": 28,
+    "description": "Abrir a Central de Programação (tecla I) com a biblioteca Blockly, compreender o fluxo de execução sequencial, dominar coordenadas cartesianas X/Y/Z e construir pelo código.",
+    "projects": "O Telégrafo de Boas-Vindas, A Estátua dos Três Minérios, O Farol dos Navegantes (Integrador).",
+    "stage": 2
+  },
+  {
+    "id": 6,
+    "title": "Central de Programação II: Aritmética Espacial & Geometria",
+    "weeks": "Semanas 14–16",
+    "missions": 28,
+    "description": "Utilizar variáveis em memória e aritmética espacial para gerar estruturas relativas à posição do jogador, preenchimento de volumes e geometria curva (círculos e esferas).",
+    "projects": "A Plataforma Voadora de Salto, O Abrigo Esculpido com Ar, O Observatório Geodésico Portátil (Integrador).",
+    "stage": 2
+  },
+  {
+    "id": 7,
+    "title": "Central de Programação III: Condicionais & Decisão",
+    "weeks": "Semanas 17–19",
+    "missions": 28,
+    "description": "Ensinar os programas visuais a inspecionar o estado do terreno com `getBlock`, tomando decisões adaptativas com estruturas condicionais encadeadas.",
+    "projects": "O Detector de Fogo e Lava, A Varinha do Construtor de Luz, O Inspetor Biológico de Terreno (Integrador).",
+    "stage": 2
+  },
+  {
+    "id": 8,
+    "title": "Central de Programação IV: Laços & Construção em Massa",
+    "weeks": "Semanas 20–22",
+    "missions": 28,
+    "description": "Dominar repetições controladas (bloco *Repetir N vezes*, laço *Para* com índice) e laços aninhados bidimensionais e tridimensionais para erguer megaestruturas.",
+    "projects": "A Colunata dos Filósofos, O Tabuleiro de Xadrez Gigante, A Torre do Relojoeiro Paramétrica (Integrador).",
+    "stage": 2
+  },
+  {
+    "id": 9,
+    "title": "Central de Programação V: Listas, Textos & Funções",
+    "weeks": "Semanas 23–25",
+    "missions": 28,
+    "description": "Armazenar múltiplos valores em Listas (*Arrays*), manipular textos e criar funções personalizadas com parâmetros e retorno de valores no Blockly.",
+    "projects": "A Torre Arco-Íris de Lãs, A Função \"CriarPosteDeLuz\", A Vila Procedural Paramétrica (Integrador).",
+    "stage": 2
+  },
+  {
+    "id": 10,
+    "title": "Central de Programação VI: Eventos, Tempo Real & Física",
+    "weeks": "Semanas 26–28",
+    "missions": 28,
+    "description": "Programar sistemas reativos orientados a eventos de teclado/mouse, implementar o ciclo do jogo (*Game Loop*) com *Delta Time* e criar veículos 3D dirigíveis.",
+    "projects": "O Painel de Magias no Teclado, O Hovercraft Flutuante, O Kart de Corrida Completo (Integrador da Trilha).",
+    "stage": 2
+  },
+  {
+    "id": 11,
+    "title": "JavaScript I: Do Bloco ao Texto",
+    "weeks": "Semanas 29–31",
+    "missions": 28,
+    "description": "Fazer a transição definitiva dos blocos visuais para a digitação de código JavaScript real no Editor Monaco profissional, dominando sintaxe, indentação e regras de texto.",
+    "projects": "O Primeiro Script Digitado, O Marco Luminoso com Template Strings, A Fachada Moderna sem Blocos (Integrador).",
+    "stage": 3
+  },
+  {
+    "id": 12,
+    "title": "JavaScript II: Variáveis, Tipos & Operadores a Fundo",
+    "weeks": "Semanas 32–35",
+    "missions": 28,
+    "description": "Compreender a fundo o sistema de tipos primitivos do JavaScript, operadores aritméticos e de atribuição abreviada, distinção entre `null` e `undefined` e conversões explícitas.",
+    "projects": "O Painel de Status com typeof, O Conversor de Medidas de Minério, A Calculadora de Muralhas Paramétricas (Integrador).",
+    "stage": 3
+  },
+  {
+    "id": 13,
+    "title": "JavaScript III: Condicionais & Decisão em Texto",
+    "weeks": "Semanas 36–38",
+    "missions": 28,
+    "description": "Escrever decisões condicionais textuais robustas, dominar a igualdade estrita (`===`), ramificações multi-casos com `switch` e o operador ternário compacto.",
+    "projects": "O Portão da Igualdade Estrita, O Seletor de Biomas com Switch/Case, O Sistema Alfandegário de Segurança (Integrador).",
+    "stage": 3
+  },
+  {
+    "id": 14,
+    "title": "JavaScript IV: Laços de Repetição em Texto",
+    "weeks": "Semanas 39–41",
+    "missions": 28,
+    "description": "Dominar os laços textuais `for`, `while` e `do...while`, variáveis acumuladoras, laços aninhados e controle fino de fluxo com `break` e `continue`.",
+    "projects": "A Escadaria Diagonal Infinita, A Muralha com Ameias (continue), O Templo dos Mil Blocos (Integrador).",
+    "stage": 3
+  },
+  {
+    "id": 15,
+    "title": "JavaScript V: Funções, Escopo & Organização",
+    "weeks": "Semanas 42–45",
+    "missions": 28,
+    "description": "Escrever funções modulares puras e impuras, definir parâmetros com valores padrão, dominar escopo léxico/bloco, escrever Arrow Functions e estruturar código limpo.",
+    "projects": "A Função \"gerarLuz\", A Calculadora de Recursos com return, A Cidadela Modular Desacoplada (Integrador).",
+    "stage": 3
+  },
+  {
+    "id": 16,
+    "title": "JavaScript VI: Arrays e seus Métodos",
+    "weeks": "Semanas 46–48",
+    "missions": 28,
+    "description": "Dominar coleções em arrays, operações de mutação (`push`/`pop`/`splice`) e programação funcional com `forEach`, `map`, `filter`, `find` e `reduce`.",
+    "projects": "O Garimpeiro com find e filter, A Alquimia da Torre com map, O Painel de Auditoria de Obras com reduce (Integrador).",
+    "stage": 3
+  },
+  {
+    "id": 17,
+    "title": "JavaScript VII: Objetos e JSON",
+    "weeks": "Semanas 49–51",
+    "missions": 28,
+    "description": "Modelar entidades e plantas arquitetônicas em Objetos literais de JavaScript, escrever métodos internos com `this`, usar desestruturação e dominar a serialização com JSON.",
+    "projects": "A Ficha do Aventureiro, O Construtor de Casas via Blueprint, O Catálogo de Cidades em JSON (Integrador).",
+    "stage": 3
+  },
+  {
+    "id": 18,
+    "title": "JavaScript VIII: Assincronia, Eventos & Grande Projeto Final",
+    "weeks": "Semanas 52–54",
+    "missions": 28,
+    "description": "Dominar a assincronia no JavaScript com `async`/`await` e Promises, controlar temporizadores sem travar a interface, tratar exceções com `try/catch/finally` e desenvolver o Projeto Final.",
+    "projects": "O Cronômetro de Bomba Assíncrono, O Construtor Blindado com try/catch, A Metrópole Autônoma (Grande Projeto Final do Curso).",
+    "stage": 3
+  }
+]
