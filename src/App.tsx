@@ -20,7 +20,7 @@ import {
   Lightbulb,
   Braces,
 } from "lucide-react";
-import { Journey, Curriculum } from "./components/Curriculum";
+import { Journey } from "./components/Curriculum";
 import LeadDialog from "./components/LeadDialog";
 import WorldLab from "./components/WorldLab";
 gsap.registerPlugin(ScrollTrigger);
@@ -39,7 +39,7 @@ const faqs = [
   ],
   [
     "Qual é a duração da formação?",
-    "O programa completo está organizado em 54 semanas, dos módulos 0 ao 18. A distribuição na rotina da escola deve ser alinhada na demonstração; não estamos assumindo que 54 semanas cabem em um único ano letivo.",
+    "São 54 semanas de conteúdo, do módulo 0 ao 18. Na conversa a gente desenha junto como isso entra na grade da sua escola: em um ano, em dois, ou no contraturno.",
   ],
   [
     "O que a turma constrói ao longo do curso?",
@@ -47,7 +47,7 @@ const faqs = [
   ],
   [
     "Como conhecer os requisitos e levar para a escola?",
-    "Solicite uma demonstração para conversar sobre faixa etária, estrutura disponível, formato das aulas, requisitos técnicos e condições de implantação. O formulário registra seu interesse, sem confirmar um horário de reunião.",
+    "Preencha o formulário e você fala direto com a nossa equipe no WhatsApp, na hora. A conversa cobre faixa etária, estrutura disponível, formato das aulas, requisitos técnicos e condições de implantação.",
   ],
 ];
 export default function App() {
@@ -109,9 +109,6 @@ export default function App() {
           </a>
           <a href="#universo" onClick={() => setMenu(false)}>
             O universo
-          </a>
-          <a href="#curriculo" onClick={() => setMenu(false)}>
-            O que se aprende
           </a>
           <a href="#escolas" onClick={() => setMenu(false)}>
             Para escolas
@@ -289,7 +286,6 @@ export default function App() {
             </article>
           </div>
         </section>
-        <Curriculum />
         <section className="final-project section-wrap">
           <div className="project-image">
             <img
@@ -391,7 +387,7 @@ export default function App() {
           >
             Quero conhecer para minha escola <Plus size={19} />
           </motion.button>
-          <small>Solicite uma demonstração. Sem compromisso.</small>
+          <small>Fale com a gente no WhatsApp. Sem compromisso.</small>
         </section>
       </main>
       <footer className="site-footer section-wrap">

@@ -1,5 +1,29 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { X, Check, LoaderCircle } from "lucide-react";
+import { X, Check, MessageCircle } from "lucide-react";
+
+/**
+ * ⚠️ TROQUE AQUI PELO NÚMERO QUE VAI ATENDER OS LEADS.
+ *
+ * Formato: código do país + DDD + número, só dígitos, sem espaço, sem "+".
+ * Exemplo para um celular de Porto Alegre: 5551998765432
+ *
+ * É a única linha deste site que precisa ser editada para trocar quem atende.
+ */
+const NUMERO_DO_WHATSAPP = "5551000000000";
+
+/** Monta a mensagem que já chega escrita na conversa. */
+function mensagemDoLead(d: Record<string, string>) {
+  const linhas = [
+    "Olá! Quero conhecer o CodeCraft para a minha escola.",
+    "",
+    "Nome: " + d.name,
+    "Escola: " + d.school,
+    "Papel na escola: " + d.role,
+  ];
+  if (d.email) linhas.push("E-mail: " + d.email);
+  return linhas.join(String.fromCharCode(10));
+}
+
 export default function LeadDialog({
   open,
   onClose,
@@ -8,20 +32,8 @@ export default function LeadDialog({
   onClose: () => void;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
-    "idle",
-  );
-  const [error, setError] = useState("");
-  const requestId = useRef<string | null>(null);
-  if (!requestId.current) {
-    const bytes = crypto.getRandomValues(new Uint8Array(16));
-    bytes[6] = (bytes[6] & 15) | 64;
-    bytes[8] = (bytes[8] & 63) | 128;
-    const hex = Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join(
-      "",
-    );
-    requestId.current = `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
-  }
+  const [enviado, setEnviado] = useState(false);
+  const [link, setLink] = useState("");
   useEffect(() => {
     if (open) dialog.current?.showModal();
     else dialog.current?.close();
@@ -34,30 +46,27 @@ export default function LeadDialog({
       document.body.style.overflow = prev;
     };
   }, [open]);
-  async function submit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    setStatus("sending");
-    try {
-      const response = await fetch("/api/demo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, id: requestId.current }),
-      });
-      const result = (await response.json()) as { error?: string };
-      if (!response.ok)
-        throw Error(
-          result.error || "Não foi possível registrar agora. Tente novamente.",
-        );
-      setStatus("done");
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Falha de conexão. Tente novamente.",
-      );
-      setStatus("error");
+  useEffect(() => {
+    if (!open) {
+      setEnviado(false);
+      setLink("");
     }
+  }, [open]);
+  function submit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const dados = Object.fromEntries(
+      new FormData(e.currentTarget),
+    ) as Record<string, string>;
+    if (dados.website) return; // armadilha para robô: humano não preenche
+    const url =
+      "https://wa.me/" +
+      NUMERO_DO_WHATSAPP +
+      "?text=" +
+      encodeURIComponent(mensagemDoLead(dados));
+    setLink(url);
+    setEnviado(true);
+    // Abre na hora. Se o navegador bloquear, o botão da tela seguinte resolve.
+    window.open(url, "_blank", "noopener,noreferrer");
   }
   return (
     <dialog
@@ -72,27 +81,33 @@ export default function LeadDialog({
       <button className="close-dialog" onClick={onClose} aria-label="Fechar">
         <X size={22} />
       </button>
-      {status === "done" ? (
+      {enviado ? (
         <div className="success">
           <span className="success-icon">
             <Check />
           </span>
-          <p className="eyebrow">PRÓXIMO PASSO</p>
-          <h2 id="demo-title">Sua escola entrou no jogo.</h2>
+          <p className="eyebrow">É SÓ ENVIAR</p>
+          <h2 id="demo-title">Abrimos o WhatsApp para você.</h2>
           <p>
-            Sua solicitação foi registrada. O contato informado poderá ser usado
-            pela equipe CodeCraft para conversar sobre a demonstração.
+            A mensagem já está escrita com os dados da sua escola. É só apertar
+            enviar que um de nós responde.
           </p>
-          <button className="button primary" onClick={onClose}>
-            Voltar à experiência
-          </button>
+          <a
+            className="button primary"
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Abrir o WhatsApp <MessageCircle size={18} />
+          </a>
         </div>
       ) : (
         <>
           <p className="eyebrow">CODECRAFT PARA ESCOLAS</p>
           <h2 id="demo-title">Vamos abrir esse novo mundo?</h2>
           <p>
-            Conte um pouco sobre sua escola para solicitar uma demonstração.
+            Conte um pouco sobre sua escola. Ao enviar, você fala direto com a
+            nossa equipe no WhatsApp.
           </p>
           <form onSubmit={submit}>
             <label>
@@ -104,17 +119,6 @@ export default function LeadDialog({
                 maxLength={100}
                 required
                 placeholder="Como podemos chamar você?"
-              />
-            </label>
-            <label>
-              E-mail profissional
-              <input
-                name="email"
-                type="email"
-                autoComplete="email"
-                maxLength={200}
-                required
-                placeholder="voce@escola.com.br"
               />
             </label>
             <label>
@@ -140,37 +144,27 @@ export default function LeadDialog({
                 <option>Outro</option>
               </select>
             </label>
+            <label>
+              <span>
+                E-mail <span className="field-optional">(opcional)</span>
+              </span>
+              <input
+                name="email"
+                type="email"
+                autoComplete="email"
+                maxLength={200}
+                placeholder="voce@escola.com.br"
+              />
+            </label>
             <label className="honey" aria-hidden="true">
               Website
               <input name="website" tabIndex={-1} autoComplete="off" />
             </label>
-            <label className="consent">
-              <input name="consent" type="checkbox" required value="yes" />
-              <span>
-                Autorizo o CodeCraft a usar estes dados para responder à minha
-                solicitação.
-              </span>
-            </label>
-            {status === "error" && (
-              <p role="alert" className="form-error">
-                {error}
-              </p>
-            )}
-            <button
-              className="button primary"
-              disabled={status === "sending"}
-              type="submit"
-            >
-              {status === "sending" ? (
-                <>
-                  <LoaderCircle className="spin" size={18} /> Registrando…
-                </>
-              ) : (
-                "Solicitar demonstração"
-              )}
+            <button className="button primary" type="submit">
+              Falar no WhatsApp <MessageCircle size={18} />
             </button>
             <p className="form-note">
-              Sem compromisso. A solicitação não confirma um horário.
+              Sem compromisso. Seus dados vão apenas na mensagem que você envia.
             </p>
           </form>
         </>

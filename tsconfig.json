@@ -11,7 +11,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
-    "types": ["vite/client", "@cloudflare/workers-types"]
+    "types": ["vite/client"]
   },
-  "include": ["src", "server", "db", "vite.config.ts", "drizzle.config.ts"]
+  "include": ["src", "vite.config.ts"]
 }

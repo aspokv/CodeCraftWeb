@@ -1308,6 +1308,11 @@ p {
   font-weight: 700;
   color: #6a7e60;
 }
+.field-optional {
+  font-weight: 400;
+  color: #9aaa8f;
+  text-transform: none;
+}
 .lead-dialog input,
 .lead-dialog select {
   font-size: 16px;
